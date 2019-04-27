@@ -1,0 +1,145 @@
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  font-family: "Open Sans", sans-serif;
+}
+nav {
+  height: 150px;
+  line-height: 150px;
+}
+nav i,
+nav [class^="mdi-"],
+nav [class*="mdi-"],
+nav i.material-icons {
+  height: 150px;
+  line-height: 150px;
+}
+
+nav .button-collapse i {
+  height: 150px;
+  line-height: 150px;
+}
+
+nav .brand-logo {
+  font-size: 2.5rem;
+}
+
+@media only screen and (min-width: 601px) {
+  nav,
+  nav .nav-wrapper i,
+  nav a.button-collapse,
+  nav a.button-collapse i {
+    height: 150px;
+    line-height: 150px;
+  }
+}
+
+@media only screen and (min-width: 601px) {
+  nav,
+  nav .nav-wrapper i,
+  nav a.sidenav-trigger,
+  nav a.sidenav-trigger i {
+    height: 150px;
+    line-height: 150px;
+  }
+}
+
+.nav-wrapper .nav-a:hover {
+  -webkit-transition: font-size 0.3s;
+  -moz-transition: font-size 0.3s;
+  -o-transition: font-size 0.3s;
+  transition: font-size 0.3s;
+}
+
+.nav-wrapper .nav-a:hover {
+  font-size: 25px;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+body::after {
+  content: "";
+  background: none;
+  opacity: 0.8;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+div#layout {
+  text-align: center;
+}
+
+div#container {
+  width: 1000px;
+  height: 600px;
+  margin: auto;
+  background-color: #2f4a6d;
+  margin-top: -1%;
+}
+
+svg {
+  width: 100%;
+  height: 100%;
+}
+
+.bar {
+  fill: #80cbc4;
+}
+
+text {
+  font-size: 12px;
+  fill: #fff;
+}
+
+path {
+  stroke: gray;
+}
+
+line {
+  stroke: gray;
+}
+
+line#limit {
+  stroke: #fed966;
+  stroke-width: 3;
+  stroke-dasharray: 3 6;
+}
+
+.grid path {
+  stroke-width: 0;
+}
+
+.grid .tick line {
+  stroke: #9faaae;
+  stroke-opacity: 0.3;
+}
+
+text.divergence {
+  font-size: 14px;
+  fill: #2f4a6d;
+}
+
+text.value {
+  font-size: 14px;
+}
+
+text.title {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+text.label {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+text.source {
+  font-size: 10px;
+}

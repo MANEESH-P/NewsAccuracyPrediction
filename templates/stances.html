@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="../static/css/materialize.min.css" />
+    <link rel="stylesheet" href="./static/css/styles.css" />
+  </head>
+  <body class="stance" style="background-color:#323232;">
+    <nav class="black">
+      <div class="nav-wrapper">
+        <a href="home" class="brand-logo center">FakeBuster</a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"
+          ><i class="material-icons">menu</i></a
+        >
+        <ul class="right hide-on-med-and-down">
+          <li><a class="nav-a" href="home">Home</a></li>
+          <li><a class="nav-a" href="sass.html">About</a></li>
+          <li><a class="nav-a" href="team">Our Team</a></li>
+          <!-- <li><a href="collapsible.html">Javascript</a></li>
+                  <li><a href="mobile.html">Mobile</a></li> -->
+        </ul>
+      </div>
+    </nav>
+
+    <ul class="sidenav" id="mobile-demo">
+      <li><a href="home">Home</a></li>
+      <li><a href="sass.html">About</a></li>
+      <li><a href="team">Our Team</a></li>
+      <!-- <li><a href="collapsible.html">Javascript</a></li>
+              <li><a href="mobile.html">Mobile</a></li> -->
+    </ul>
+    <div class="container">
+      <div class="card-panel header-card news-card  z-depth-3 white-text">
+        <h4>News article stances</h4>
+        <form action="/analyze" class="col s12" method="POST">
+          <button
+            class="btn waves-effect waves-light white black-text right"
+            type="submit"
+            action="/stances"
+            method="POST"
+          >
+            Analyze
+          </button>
+        </form>
+      </div>
+    </div>
+    <!-- <div class="row">
+      {% for news in data.articles %}
+      <p>{{ news.title }}</p>
+      {% endfor %}
+    </div> -->
+    <div class="container">
+      <div class="row">
+        {% for i in range(1, data.opinion|length) %}
+        <div class="col s12 m6 l6">
+          <div class="card news-card ">
+            <div class="card-content white-text">
+              <span class="card-title">{{ data.title[i - 1][:75] }}...</span>
+              <h6>
+                Stance: <b>{{ data.opinion[i] }}</b>
+              </h6>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <script src="../static/js/materialize.min.js"></script>
+  </body>
+</html>

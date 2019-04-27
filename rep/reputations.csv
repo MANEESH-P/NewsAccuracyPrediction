@@ -1,0 +1,8 @@
+source,reputation,articles,size
+The Indian Express,0.8311906196793656,"[0, 1, 8]",103
+The Hindu,0.6996757121739074,[7],101
+source,reputation,[],100
+News18,-0.3,[],100
+Firstpost,-0.710277805123393,"[2, 3, 6]",103
+The Times of India,0.4695579347948221,"[4, 5]",102
+Deccan Chronicle,0.32,[],100

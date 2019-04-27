@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--Import Google Icon Font-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <script
+      src="http://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"
+    ></script>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="../static/css/materialize.min.css" />
+    <link rel="stylesheet" href="./static/css/styles.css" />
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FakeBuster</title>
+    <body class="noarticlesfound" style="background-color:#323232;">
+      <nav class="black z-depth-3">
+        <div class="nav-wrapper">
+          <a href="home" class="brand-logo center">FakeBuster</a>
+          <a href="#" data-target="mobile-demo" class="sidenav-trigger"
+            ><i class="material-icons">menu</i></a
+          >
+          <ul class="right hide-on-med-and-down">
+            <li><a class="nav-a" href="home">Home</a></li>
+            <li><a class="nav-a" href="sass.html">About</a></li>
+            <li><a class="nav-a" href="team">Our Team</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <ul class="sidenav" id="mobile-demo">
+        <li><a href="home">Home</a></li>
+        <li><a href="sass.html">About</a></li>
+        <li><a href="team">Our Team</a></li>
+      </ul>
+      <main>
+        <div class="container home-container">
+          <div class="row" style="margin-top:15%;">
+            <div class="col s12 m6 l6 offset-m3 offset-l3">
+              <div class="card news-card darken-1">
+                <div class="card-content white-text">
+                  <span class="card-title">No Articles Found</span>
+                  <p>
+                    No news articles related to the entered claim or URL was
+                    found.
+                  </p>
+                </div>
+                <div class="card-action center">
+                  <a href="home">Go Back</a>
+                  <!-- <a href="#">This is a link</a> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <script type="text/javascript">
+        $("#search").click(function(e) {
+          $("#loading").show();
+        });
+        $(window).on("load", function() {
+          $("#loading").hide();
+        });
+        $(document).ready(function() {
+          $(".sidenav").sidenav();
+        });
+      </script>
+    </body>
+    <div id="loading" class="center">
+      <img
+        id="loading-image"
+        src="../static/images/giphy2.gif"
+        alt="Loading..."
+      />
+      <h4 id="message">Hang on tight! This might take a while...</h4>
+    </div>
+    <!-- Compiled and minified JavaScript -->
+    <script src="../static/js/materialize.min.js"></script>
+  </head>
+</html>

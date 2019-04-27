@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <script
+      src="http://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"
+    ></script>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="../static/css/materialize.min.css" />
+    <link rel="stylesheet" href="../static/css/styles.css" />
+  </head>
+  <body class="downloading" style="background-color:#323232;">
+    <nav class="black">
+      <div class="nav-wrapper">
+        <a href="home" class="brand-logo center">FakeBuster</a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"
+          ><i class="material-icons">menu</i></a
+        >
+        <ul class="right hide-on-med-and-down">
+          <li><a class="nav-a" href="home">Home</a></li>
+          <li><a class="nav-a" href="sass.html">About</a></li>
+          <li><a class="nav-a" href="team">Our Team</a></li>
+          <!-- <li><a href="collapsible.html">Javascript</a></li>
+              <li><a href="mobile.html">Mobile</a></li> -->
+        </ul>
+      </div>
+    </nav>
+
+    <ul class="sidenav" id="mobile-demo">
+      <li><a href="home">Home</a></li>
+      <li><a href="sass.html">About</a></li>
+      <li><a href="team">Our Team</a></li>
+      <!-- <li><a href="collapsible.html">Javascript</a></li>
+          <li><a href="mobile.html">Mobile</a></li> -->
+    </ul>
+    <div class="container">
+      <div class="card-panel header-card news-card z-depth-3 white-text">
+        <h4>Related News articles</h4>
+        <form action="/stances" class="col s12" method="POST">
+          <button
+            class="btn waves-effect waves-light white black-text right"
+            type="submit"
+            action="/stances"
+            method="POST"
+          >
+            View Stances
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <a
+      style="display:none"
+      id="modalbutton"
+      class="waves-effect waves-light btn modal-trigger"
+      href="#modal1"
+      >Modal</a
+    >
+
+    <div id="modal1" class="modal">
+      <div class="modal-content">
+        {% if data.final_score > 0.5 %}
+        <h4 class="center">Not Fake News !</h4>
+        {% else %}
+        <h4 class="center">Not credible !</h4>
+        {% endif %} {% if data.final_score > 0.5 %}
+        <p style="margin:0 20px">
+          Based on our analysys most of the reputed news sources that we checked
+          and referenced against this article agrees with it. So the news is
+          most likely credible.
+        </p>
+        {% else %}
+        <p style="margin:0 20px">
+          Based on our analysys most of the reputed news sources that we checked
+          and referenced against this article does not agree with it. So the
+          news is likely to be fake.
+        </p>
+        {% endif %}
+      </div>
+      <div class="modal-footer">
+        <a
+          style="margin-right:6px;"
+          href="#!"
+          class="modal-close waves-effect waves-green btn-flat"
+          >Ok</a
+        >
+      </div>
+    </div>
+
+    <!-- <div class="row">
+      {% for news in news_articles %}
+      <p>{{ news.title }}</p>
+      {% endfor %}
+    </div> -->
+    <div class="container">
+      <div class="row">
+        {% for news in data.news_articles %}
+        <div class="col s12 m6 l4">
+          <div class="card  z-depth-3 news-card">
+            <div class="card-image">
+              <img src="{{ news.image }}" style="height:300px;" />
+            </div>
+            <div class="card-content white-text">
+              <span class="card-title">{{ news.title[:35] }}...</span>
+              <p>{{ news.source.title }} &nbsp {{ news.date }}</p>
+            </div>
+            <div class="card-action">
+              <a href="{{ news.url }}">Read more</a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <script src="../static/js/materialize.min.js"></script>
+    <script type="text/javascript">
+      $(window).on("load", function() {
+        $("#loading").hide();
+      });
+      $(document).ready(function() {
+        $(".modal").modal();
+      });
+      window.onload = function() {
+        var button = document.getElementById("modalbutton");
+        console.log("entered");
+        button.click();
+        var modal = document.getElementsByClassName("open");
+        modal[0].style.marginTop = "10%";
+      };
+    </script>
+  </body>
+  <div id="loading">
+    <img
+      id="loading-image"
+      src="../static/images/giphy2.gif"
+      alt="Loading..."
+    />
+    <h4 id="message">Almost done... Finishing up.</h4>
+  </div>
+</html>
